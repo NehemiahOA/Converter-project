@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>converter1.0</title>
+	<script type="text/javascript">
+		function celFoc()
+		{
+			document.getElementById('t2').value = "";
+			document.getElementById('t3').value = "";
+		}
+		function kelFoc()
+			{
+			document.getElementById('t1').value = "";
+			document.getElementById('t3').value = "";
+			}
+		function farFoc()
+		{
+			document.getElementById('t1').value = "";
+			document.getElementById('t2').value = "";
+		}
+		function celIn()
+		{
+			if ((document.getElementById('t1').value=="") || (document.getElementById('t1').value=="-"))
+			{
+				document.getElementById('t2').value = 0;
+				document.getElementById('t3').value = 0;
+			}
+			else
+			{
+			a = parseInt(document.getElementById('t1').value);
+			c = a + 273;
+			document.getElementById('t2').value = c;
+			d = a * 9/5 +32;
+			document.getElementById('t3').value = d;
+			}
+		}
+		function kelIn()
+		{
+			if ((document.getElementById('t2').value=="") || (document.getElementById('t2').value=="-"))
+			{
+				document.getElementById('t1').value = 0;
+				document.getElementById('t3').value = 0;
+			}
+			else
+			{
+			e = parseInt(document.getElementById('t2').value);
+			f = e - 273 ;
+			document.getElementById('t1').value = f;
+			g = (e*1.8)/459.67; 
+			document.getElementById('t3').value = g;
+			}
+		}
+		function farIn()
+			{
+				if ((document.getElementById('t3').value =="") || (document.getElementById('t3').value == "-"))
+				{
+					document.getElementById('t1').value = 0;
+					document.getElementById('t2').value = 0;
+				}
+				else
+				{
+				h = parseInt(document.getElementById("t3").value);
+				i = (h - 32)*5/9
+				document.getElementById("t1").value = i;
+				j = (h + 459.67)/1.8;
+				document.getElementById("t2").value = j;
+				}
+			}
+	</script>
+	<style type="text/css">
+		table
+		{
+			position: absolute;
+			top: 50px;
+			left: 400px;
+		}
+		.one 
+		{
+			width: 550px;
+			height: 100px;
+			background-color: #F0F0F0;
+			border : 10px solid black;
+			border-style: outset;
+			position: absolute;
+			left: 390px;
+			top: 41px;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+<div class="one">
+</div>
+<table border="0" width="550px" height="100px" align="center">
+	<tr>
+	<td colspan="3" align="center"><font color="maroon" size="5px" face="verdana"><b> NEH'S TEMPERATURE CONVERTER</b></font></td>
+	</tr>
+	<tr>
+		<td align="center"><font color="maroon" size="5px" face="Georgia, Times New Roman, Times, serif"></font> CELCIUS</td></td>
+		<td align="center"><font color="maroon" size="5px" face="Georgia, Times New Roman, Times, serif"></font> KELVIN</td>
+		<td align="center"><font color="maroon" size="5px" face="Georgia, Times New Roman, Times, serif"></font> FARENHEIT</td>
+	</tr>
+	<tr>
+		<td><input  style="width:99%; height:100%" type="text" id="t1" onFocus="celFoc()" oninput="celIn()"></td>
+		<td><input style="width:99%; height:100%" type="text" id="t2" onFocus="kelFoc()" oninput="kelIn()"></td>
+		<td><input style="width:97%; height:100%" type="text" id="t3" onFocus="farFoc()" oninput="farIn()"></td>
+	</tr>
+</table>
+</body>
+</html>
